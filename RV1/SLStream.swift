@@ -95,7 +95,7 @@ struct SLStream {
         let line = nextLine()
         if (line != nil)
         {
-            let test: BaseDG = BaseDG(message: line!)
+            let test: BaseDG = BaseDG(message: line!, timeStamp: Date())
             return test
         }
         return nil
