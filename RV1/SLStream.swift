@@ -12,6 +12,7 @@ struct SLStream {
     private var array: Array<String>
     private var index = 0;
     private var connect: TMSConnect
+    private var messagesLoaded = 0
     
     init()
     {
@@ -22,7 +23,14 @@ struct SLStream {
         connect = TMSConnect()
         openStaticData()
         connect.connect()
-        connect.readLive()
+        connect.readLoop()
+    }
+    
+    var messagesProcessed: Int
+    {
+        get {
+            return connect.messagesReceived + messagesLoaded
+        }
     }
     
     mutating func readLive()
@@ -33,6 +41,7 @@ struct SLStream {
     mutating func reconnect()
     {
         connect.connect()
+        connect.readLive()
     }
     
     
@@ -76,6 +85,7 @@ struct SLStream {
                 print(dg.tankSize)
             }
             storeDG(dg: dg)
+            messagesLoaded += 1
             dg = nextDG()
         }
     }

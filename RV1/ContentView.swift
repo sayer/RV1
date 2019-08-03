@@ -35,6 +35,7 @@ struct ContentView : View {
             Button(action: {self.stream.reconnect()}) {
                 Text("Reconnect")
             }
+            Text("Processed: \(stream.messagesProcessed)")
         }
     }
 }
