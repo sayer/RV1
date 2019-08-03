@@ -193,7 +193,7 @@ struct TMSConnect
         let line = nextLine()
         if (line != nil && line?.count ?? 0 > 15)
         {
-            let test: BaseDG = BaseDG(message: line!)
+            let test: BaseDG = BaseDG(message: line!, timeStamp: Date())
             return test
         }
         return nil

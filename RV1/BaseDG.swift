@@ -179,7 +179,7 @@ let DATE_TIME_STATUS =  "1FFFF"
 struct BaseDG {
     let message: String
     let timeStamp: Date
-    let location: CLongLong
+    //let location: CLongLong
     let payLoadStart = 9
     
     var payload: String {
