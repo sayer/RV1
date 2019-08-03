@@ -35,13 +35,11 @@ struct SLStream {
     
     mutating func readLive()
     {
-        // move to worker queue
         connect.readLive()
     }
     
     mutating func reconnect()
     {
-        // move to worker queue
         connect.connect()
         connect.readLive()
     }

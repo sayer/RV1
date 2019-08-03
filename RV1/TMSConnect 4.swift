@@ -39,7 +39,7 @@ struct TMSConnect
     {
         DispatchQueue.main.async {
             // message UI that stats are updated
-            tempMessage = "Messages received: \(self.messagesReceived)"
+            tempMessage = "Messages received: \(messagesReceived)"
         }
     }
     
@@ -76,7 +76,6 @@ struct TMSConnect
             print(error)
             failureCount += 1
             ConnectError = error;
-            tempMessage = "unable to connect to TMS-550"
             return false
         }
         

@@ -19,6 +19,7 @@ struct ContentView : View {
     @State var tl0Percent = dg(event: TANK_STATUS, instance: 0).tankLevelPercent
     @State var tl1Percent = dg(event: TANK_STATUS, instance: 1).tankLevelPercent
     @State var doorLocked = dg(event: LOCK_STATUS, instance: 1).doorLocked
+    @State var refreshCount = 0
     
     
     var body: some View {
@@ -29,13 +30,18 @@ struct ContentView : View {
             Text("Entry Door locked: \(doorLocked ? "Yes" : "No")")
             Text("Error: \(ConnectError != nil ? ConnectError.localizedDescription : ":-)")")
             Text("")
-            Button(action: {self.stream.readLive()}) {
-                Text("Refresh")
+            Button(action: {self.stream.readLive()
+                self.refreshCount += 1
+            }) {
+                Text("Refresh  \(refreshCount)")
             }
-            Button(action: {self.stream.reconnect()}) {
+            Button(action: {self.stream.reconnect()
+                self.refreshCount += 1
+            }) {
                 Text("Reconnect")
             }
             Text("Processed: \(stream.messagesProcessed)")
+            Text("Message: \(tempMessage)")
         }
     }
 }
