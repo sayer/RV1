@@ -41,7 +41,7 @@ struct ContentView : View {
                 Text("Reconnect")
             }
             Text("Processed: \(stream.messagesProcessed)")
-            Text("Message: \(tempMessage)")
+            Text("Message: \(tempMessage ?? "")")
         }
     }
 }
