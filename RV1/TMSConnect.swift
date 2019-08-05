@@ -9,6 +9,7 @@
 import Foundation
 import Socket
 import UIKit
+import CoreLocation
 
 var ConnectError: Error! = nil
 var SingleConnection:TMSConnect! = nil
@@ -195,7 +196,7 @@ struct TMSConnect
         let line = nextLine()
         if (line != nil && line?.count ?? 0 > 15)
         {
-            let test: BaseDG = BaseDG(message: line!, timeStamp: Date())
+            let test: BaseDG = BaseDG(message: line!, timeStamp: Date(), location: CLLocation(latitude: 0,longitude: 0))
             return test
         }
         return nil

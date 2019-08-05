@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import CoreLocation
 
 let GENERIC_INDICATOR_STATUS =  "1FED7"
 let GENERIC_CONFIGURATION_STATUS =  "1FED8"
@@ -179,7 +179,7 @@ let DATE_TIME_STATUS =  "1FFFF"
 struct BaseDG {
     let message: String
     let timeStamp: Date
-    //let location: CLongLong
+    let location: CLLocation
     let payLoadStart = 9
     
     var payload: String {

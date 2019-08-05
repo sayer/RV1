@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct SLStream {
     private var array: Array<String>
@@ -97,7 +98,7 @@ struct SLStream {
         let line = nextLine()
         if (line != nil)
         {
-            let test: BaseDG = BaseDG(message: line!, timeStamp: Date())
+            let test: BaseDG = BaseDG(message: line!, timeStamp: Date(), location: CLLocation(latitude: 0,longitude: 0))
             return test
         }
         return nil
