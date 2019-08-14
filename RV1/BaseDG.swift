@@ -299,5 +299,45 @@ struct BaseDG {
         get { return payloadInt8(start: 12) - 125 }
     }
     
+    var setpointTempHeat: Int
+    {
+        // not correct
+        get { return payloadInt16(start: 6) }
+    }
+    
+    var setpointTempCool: Int
+    {
+        // not correct
+        get { return payloadInt16(start: 10) }
+    }
+    
+    // AIR_CONDITIONER_STATUS
+    
+    var acFanspeed: Int
+    {
+        get { return payloadInt8(start: 8) }
+    }
+    
+    // INVERTER_STATUS
+    
+    var inverterStatus: Int
+    {
+        get { return payloadInt8(start: 2) }
+    }
+    
+    // INVERTER_DC_STATUS
+    
+    var dcVolts: Double
+     {
+        get { return Double(payloadInt16(start: 2))*0.05 }
+     }
+
+    var dcAmperage: Double
+     {
+        // Not corrent should - 1600 per spec
+        get { return Double(payloadInt16(start: 6)) * 0.015 }
+     }
+
+    
 }
 

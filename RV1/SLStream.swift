@@ -124,8 +124,33 @@ struct SLStream {
             if (dg.event == THERMOSTAT_STATUS_1)
                                   {
                                       print("message: \(dg.message)")
+                                    print("Instance: \(dg.instance) Heat: \(dg.setpointTempHeat) Cool: \(dg.setpointTempCool)")
                                   }
                        
+            
+            if (dg.event == AIR_CONDITIONER_STATUS)
+                                  {
+                                      print("message: \(dg.message)")
+                                    print("Instance: \(dg.instance) fan speed: \(dg.acFanspeed)")
+                                    
+                                  }
+            
+            if (dg.event == INVERTER_STATUS)
+                                   {
+                                       print("message: \(dg.message)")
+                                     print("Instance: \(dg.instance) status: \(dg.inverterStatus)")
+                                     
+                                   }
+            
+            if (dg.event == INVERTER_DC_STATUS)
+                                   {
+                                       print("message: \(dg.message)")
+                                     print("Instance: \(dg.instance) volts: \(dg.dcVolts) amps: \(dg.dcAmperage)")
+                                     
+                                   }
+            
+            
+            
             
             storeDG(dg: dg)
             messagesLoaded += 1
