@@ -87,6 +87,11 @@ struct SLStream {
             {
                 print(dg.tankSize)
             }
+            if (dg.event == CHASSIS_MOBILITY_STATUS)
+            {
+                print("dg: \(dg.message)")
+                print("rpm: \(dg.engineRPM) speed: \(dg.vehicleSpeed) parking: \(dg.parkBrakeEngaged)")
+            }
             storeDG(dg: dg)
             messagesLoaded += 1
             dg = nextDG()

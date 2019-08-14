@@ -267,5 +267,22 @@ struct BaseDG {
         }
     }
     
+    // CHASSIS_MOBILITY_STATUS
+    
+    var engineRPM: Int
+    {
+        get { return payloadInt16(start: 0) }
+    }
+    
+    var vehicleSpeed: Int
+    {
+        get { return payloadInt16(start: 4) }
+    }
+    
+    var parkBrakeEngaged: Bool
+    {
+        get { return payloadInt8(start: 8) & 1 != 0 }
+    }
+    
 }
 
