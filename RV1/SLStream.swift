@@ -142,14 +142,17 @@ struct SLStream {
                                      
                                    }
             
-            if (dg.event == INVERTER_DC_STATUS)
+            if ((dg.event == INVERTER_DC_STATUS) || (dg.event == CHARGER_AC_STATUS_1) || (dg.event == CHARGER_AC_STATUS_2) || (dg.event == CHARGER_AC_STATUS_3) || (dg.event == CHARGER_AC_STATUS_4) || (dg.event == CHARGER_STATUS))
                                    {
                                        print("message: \(dg.message)")
+                                    print("Name: \(DGNTable[dg.event])")
                                      print("Instance: \(dg.instance) volts: \(dg.dcVolts) amps: \(dg.dcAmperage)")
                                      
                                    }
             
+
             
+
             
             
             storeDG(dg: dg)

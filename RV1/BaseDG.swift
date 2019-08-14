@@ -325,19 +325,22 @@ struct BaseDG {
         get { return payloadInt8(start: 2) }
     }
     
-    // INVERTER_DC_STATUS
+    // INVERTER_DC_STATUS, AC_STATUS_1
     
     var dcVolts: Double
      {
-        get { return Double(payloadInt16(start: 2))*0.05 }
+        get { return Double(payloadInt16(start: 2))*0.05/10.0 }
      }
 
     var dcAmperage: Double
      {
         // Not corrent should - 1600 per spec
-        get { return Double(payloadInt16(start: 6)) * 0.015 }
+        get { return Double(payloadInt16(start: 6)) * 0.015/10.0 }
      }
 
+    // AC_STATUS_1
+    
+    
     
 }
 
