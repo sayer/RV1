@@ -271,7 +271,7 @@ struct BaseDG {
     
     var engineRPM: Int
     {
-        get { return payloadInt16(start: 0) }
+        get { return Int(Double(payloadInt16(start: 0))*0.125) }
     }
     
     var vehicleSpeed: Int
@@ -279,9 +279,24 @@ struct BaseDG {
         get { return payloadInt16(start: 4) }
     }
     
+    var ignitionSwitchStatus: Bool
+    {
+        get { return (payloadInt8(start: 10) & 1) == 1 }
+    }
+    
+    var accessorySwitchStatus: Bool
+    {
+        get { return (payloadInt8(start: 10) & 4) == 4 }
+    }
+    
     var parkBrakeEngaged: Bool
     {
         get { return payloadInt8(start: 8) & 1 != 0 }
+    }
+    
+    var transmissionCurrentGear: Int
+     {
+        get { return payloadInt8(start: 12) - 125 }
     }
     
 }

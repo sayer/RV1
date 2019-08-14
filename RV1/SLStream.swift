@@ -89,9 +89,44 @@ struct SLStream {
             }
             if (dg.event == CHASSIS_MOBILITY_STATUS)
             {
-                print("dg: \(dg.message)")
-                print("rpm: \(dg.engineRPM) speed: \(dg.vehicleSpeed) parking: \(dg.parkBrakeEngaged)")
+                print("rpm: \(dg.engineRPM) speed: \(dg.vehicleSpeed) parking: \(dg.parkBrakeEngaged) gear: \(dg.transmissionCurrentGear) Ignition: \(dg.ignitionSwitchStatus) Accessory: \(dg.accessorySwitchStatus)")
             }
+            
+            if (dg.event == AAS_STATUS)
+            {
+                print("message: \(dg.message)")
+            }
+            
+            
+            if (dg.event == AAS_SENSOR_STATUS)
+            {
+                print("message: \(dg.message)")
+            }
+            
+            
+            if (dg.event == LEVELING_CONTROL_STATUS)
+            {
+                print("message: \(dg.message)")
+            }
+            
+            if (dg.event == LEVELING_AIR_STATUS)
+                       {
+                           print("message: \(dg.message)")
+                       }
+            
+        
+            if (dg.event == SLIDE_SENSOR_STATUS)
+                               {
+                                   print("message: \(dg.message)")
+                               }
+                    
+            
+            if (dg.event == THERMOSTAT_STATUS_1)
+                                  {
+                                      print("message: \(dg.message)")
+                                  }
+                       
+            
             storeDG(dg: dg)
             messagesLoaded += 1
             dg = nextDG()
